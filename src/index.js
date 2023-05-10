@@ -9,6 +9,8 @@ const DataAPI = require("./datasources/data-api");
 async function startApolloServer() {
   const server = new ApolloServer({ typeDefs, resolvers });
 
+  const port = Number.parseInt(process.env.PORT) || 4000;
+
   const { url } = await startStandaloneServer(server, {
     context: async () => {
       const { cache } = server;
@@ -19,6 +21,7 @@ async function startApolloServer() {
         },
       };
     },
+    listen: { port },
   });
 
   console.log(`
