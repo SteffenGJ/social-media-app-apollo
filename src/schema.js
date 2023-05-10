@@ -89,6 +89,7 @@ const typeDefs = gql`
     code: Int!
     success: Boolean!
     message: String!
+    user: ID
   }
 `;
 

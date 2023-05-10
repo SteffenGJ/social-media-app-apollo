@@ -111,6 +111,7 @@ const resolvers = {
           code: 200,
           success: true,
           message: `Logged in as ${response.message}`,
+          user: response.message,
         };
       } catch (err) {
         return {
