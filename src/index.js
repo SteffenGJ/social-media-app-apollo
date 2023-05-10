@@ -4,7 +4,7 @@ const { startStandaloneServer } = require("@apollo/server/standalone");
 const typeDefs = require("./schema");
 const resolvers = require("./resolvers");
 
-const ExampleAPI = require("./datasources/example-api"); //ex. ExampleAPI
+const DataAPI = require("./datasources/data-api");
 
 async function startApolloServer() {
   const server = new ApolloServer({ typeDefs, resolvers });
@@ -15,7 +15,7 @@ async function startApolloServer() {
 
       return {
         dataSources: {
-          exampleAPI: new ExampleAPI({ cache }),
+          dataAPI: new DataAPI({ cache }),
         },
       };
     },
